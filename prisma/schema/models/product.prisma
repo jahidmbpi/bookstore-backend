@@ -1,0 +1,15 @@
+model Product{
+  id        String     @id @default(uuid())
+  title      String?  
+  image     String?
+  price     Decimal?
+  oldPrice  Decimal?
+  discount  String?
+  categorySlug String?
+  stockQty Int?
+  featured Boolean    @default(false)
+  insidePageOptions String[]
+  relatedProductIds String[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
