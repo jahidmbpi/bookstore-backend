@@ -20,7 +20,7 @@ app.use("/api/v1", router);
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     message:
-      "Welcome to PannoMela, an e-commerce platform for daily accessories",
+      "Welcome to bookstore, an e-commerce platform for daily accessories",
   });
 });
 
