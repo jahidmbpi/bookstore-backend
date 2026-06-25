@@ -5,6 +5,8 @@ interface ENVconfig {
   FRONTEND_URL: string;
   NODE_ENV: string;
   DATABASE_URL: string;
+  JWT_ACCESS_SECRET: string;
+  JWT_ACCESS_EXPIRE: string;
 }
 
 const loadEnvVariable = (): ENVconfig => {
@@ -25,6 +27,8 @@ const loadEnvVariable = (): ENVconfig => {
     FRONTEND_URL: process.env.FRONTEND_URL as string,
     NODE_ENV: process.env.NODE_ENV as string,
     DATABASE_URL: process.env.DATABASE_URL as string,
+    JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET || "",
+    JWT_ACCESS_EXPIRE: process.env.JWT_ACCESS_EXPIRE || "",
   };
 };
 export const envVars = loadEnvVariable();

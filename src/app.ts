@@ -4,6 +4,7 @@ import cors from "cors";
 import { envVars } from "./app/config/env";
 import cookieParser from "cookie-parser";
 import router from "./app/router";
+import { globalErrorhandelar } from "./app/middleware/globalErrorHandler";
 
 const app = express();
 app.use(
@@ -23,5 +24,5 @@ app.get("/", (req: Request, res: Response) => {
       "Welcome to bookstore, an e-commerce platform for daily accessories",
   });
 });
-
+app.use(globalErrorhandelar);
 export default app;

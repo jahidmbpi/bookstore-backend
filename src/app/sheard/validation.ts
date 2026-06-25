@@ -1,0 +1,23 @@
+import type { NextFunction, Request, Response } from "express";
+import type { ZodTypeAny } from "zod";
+
+const validateRequest =
+  (zodSchema: ZodTypeAny) =>
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      let body = req.body?.data || req.body;
+      if (!req.body) {
+        throw new Error("Request body is missing");
+      }
+      if (typeof body === "string") {
+        body = JSON.parse(body);
+      }
+      req.body = await zodSchema.parseAsync(body);
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+
+export default validateRequest;
