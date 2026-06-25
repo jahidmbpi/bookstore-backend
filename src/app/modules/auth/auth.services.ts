@@ -7,6 +7,7 @@ import { UserStatus } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import createUserTocken from "../../sheard/createTocken";
 import { setCoockie } from "../../sheard/setCoockie";
+import { ClearCoockie } from "../../sheard/clearCoockie";
 
 const logIn = async (
   res: Response,
@@ -53,6 +54,13 @@ const logIn = async (
   };
 };
 
+const logOut = async (res: Response) => {
+  ClearCoockie(res);
+  return {
+    message: "user logged out successfully",
+  };
+};
 export const authServices = {
   logIn,
+  logOut,
 };

@@ -18,6 +18,18 @@ const logIn = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const logOut = catchAsync(async (req: Request, res: Response) => {
+  const result = await authServices.logOut(res);
+  console.log(result);
+
+  sendResponse(res, {
+    success: true,
+    message: "user logOut successfully",
+    statusCode: StatusCodes.OK,
+    data: result,
+  });
+});
 export const authcontroller = {
   logIn,
+  logOut,
 };
