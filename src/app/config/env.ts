@@ -15,6 +15,8 @@ const loadEnvVariable = (): ENVconfig => {
     "FRONTEND_URL",
     "NODE_ENV",
     "DATABASE_URL",
+    "JWT_ACCESS_SECRET",
+    "JWT_ACCESS_EXPIRE",
   ];
   requireVariable.forEach((key) => {
     if (!process.env[key]) {
@@ -27,8 +29,8 @@ const loadEnvVariable = (): ENVconfig => {
     FRONTEND_URL: process.env.FRONTEND_URL as string,
     NODE_ENV: process.env.NODE_ENV as string,
     DATABASE_URL: process.env.DATABASE_URL as string,
-    JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET || "",
-    JWT_ACCESS_EXPIRE: process.env.JWT_ACCESS_EXPIRE || "",
+    JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET as string,
+    JWT_ACCESS_EXPIRE: process.env.JWT_ACCESS_EXPIRE as string,
   };
 };
 export const envVars = loadEnvVariable();
