@@ -8,3 +8,9 @@ enum UserStatus {
   INACTIVE
   BLOCK
 }
+
+enum DeliveryZone{
+  INSIDE_DHAKA
+  OUTSIDE_DHAKA
+  
+}

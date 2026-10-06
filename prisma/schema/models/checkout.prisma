@@ -1,0 +1,16 @@
+model Checkout{
+id String @id @default(uuid())
+name String?
+phoneNumber String
+address String?
+deliveryZone DeliveryZone @default(INSIDE_DHAKA)
+cashOnDelivery Boolean?
+selfMFS Boolean?
+senderMobileNumber String?
+transactionId String?
+totalAmount Decimal?
+ProductId String[]
+
+
+}
+
